@@ -14,7 +14,24 @@ To run the API locally, follow these steps:
 1. Install .NET 8.0 SDK from [here](https://dotnet.microsoft.com/download/dotnet/8.0).
 2. Open the terminal and navigate to the project directory.
 3. Run `dotnet restore` to restore the project dependencies.
-4. Update the `appsettings.json` file with your SQL Server connection string.
+4. Create or Update the `appsettings.json` file with your SQL Server connection string.
+
+   ```
+   {
+   "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+   },
+   "AllowedHosts": "*",
+   "ConnectionStrings": {
+    "DefaultConnection": "Server=<server-here>;Database=ProductManagementDB;Integrated Security=True;Trusted_Connection=True;TrustServerCertificate=True;"
+   }
+   }
+
+   ```
+
 5. Run `dotnet ef database update` to create the database.
 6. Run `dotnet run` to start the API.
 7. Open a browser and navigate to `http://localhost:5187/swagger` to see the Swagger UI.
@@ -30,4 +47,3 @@ Contributions are welcome. Please open an issue or create a pull request with yo
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
